@@ -9,10 +9,18 @@ body {
 h1 {
 	text-align: center;
 }
-
-input {
+h2,
+h3,
+h4,
+h5 {
+	font-size: 2em;
 }
 
+input[type=submit] {
+	width: 10%;
+	padding: 12px 20px;
+	display: inline-block;
+}
 input[type=text],
 select {
 	width: 80%;
@@ -22,6 +30,11 @@ select {
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
+}
+
+.predict-box {
+	max-width: 50%;
+	float: left;
 }
 
 .dog-img {
