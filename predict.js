@@ -34,11 +34,12 @@ window.onload = () => {
 		})
 		.then(() =>
 			homosapien.country.forEach((element, idx) => {
-				country_code += `${element.country_id},`;
 				if (idx === homosapien.country.length - 1) {
 					country_code += `${element.country_id}`;
-					console.log(country_code);
+				} else {
+					country_code += `${element.country_id},`;
 				}
+				console.log(country_code);
 			})
 		)
 		.then(() => fetch(`${country_url}${country_code}`))
