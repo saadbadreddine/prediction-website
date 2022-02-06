@@ -32,9 +32,21 @@ select {
 	box-sizing: border-box;
 }
 
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
 .predict-box {
 	max-width: 50%;
 	float: left;
+	border-radius: 20px;
+	border: 1px solid #2c2624;
+	text-align: center;
+	color: #fffbf8;
+	background-color: #256b6e;
 }
 
 .dog-img {
@@ -42,8 +54,8 @@ select {
 	max-height: 65vh;
 }
 
-.flex-container {
-	background-color: #256b6e;
+.input-box {
+	background-color: #f2631b;
 	color: #fffbf8;
 	display: flex;
 	flex-direction: column;
@@ -53,7 +65,7 @@ select {
 	text-align: center;
 }
 
-.flex-dog {
+.dog-box {
 	width: fit-content;
 	max-width: 50%;
 	margin: auto;
