@@ -13,15 +13,64 @@ window.onload = () => {
 	fetch('https://dog.ceo/api/breeds/image/random')
 		.then((response) => response.json())
 		.then((data) => (document.getElementById('doggo').src = data.message));
-	let name = '';
+
+	let person = new Person();
+
 	document.getElementById('name-form').addEventListener('submit', (e) => {
-		name = document.getElementById('name-input').value;
+		person.name = document.getElementById('name-input').value;
 		e.preventDefault();
-		predictPerson(name);
+
+		fetchAPI(person.name)
+			.then(([ age, gender, country ]) => {
+				person.name = person.name.charAt(0).toUpperCase() + person.name.slice(1).toLowerCase();
+				person.age = age.age;
+				person.gender = gender.gender;
+				person.gender = person.gender.charAt(0).toUpperCase() + person.gender.slice(1);
+				person.country = [];
+				document.getElementById('name').textContent = ` ${person.name}`;
+				document.getElementById('gender').textContent = ` ${person.gender}`;
+				document.getElementById('age').textContent = ` ${person.age}`;
+				country.country.forEach((element) => person.country.push(element.country_id));
+				document.getElementById('nationality').textContent = ` ${person.country}`;
+				document.getElementsByClassName('predict-box')[0].style.display = 'flex';
+			})
+			.catch((error) => {
+				// if there's an error, log it
+				console.log(error);
+			});
+
+		document.getElementById('name-form').reset();
+
+		if (person.name === '') {
+			document.getElementsByClassName('predict-box')[0].style.display = 'none';
+		}
 	});
 
+	//-------------------------------------async/await & Promise.all-----------------------------------------//
+
+	const fetchAPI = async (name) => {
+		const [ response_age, response_gender, response_country ] = await Promise.all([
+			fetch(`https://api.agify.io/?name=${name}`),
+			fetch(`https://api.genderize.io?name=${name}`),
+			fetch(`https://api.nationalize.io/?name=${name}`)
+		]);
+
+		const age = await response_age.json();
+		const gender = await response_gender.json();
+		const country = await response_country.json();
+
+		return [ age, gender, country ];
+	};
+
 	//-------------------------------------Promise.all-----------------------------------------//
+
+	/* 
 	const predictPerson = (name) => {
+		document.getElementById('name-form').reset();
+		if (name === '') {
+			document.getElementsByClassName('predict-box')[0].style.display = 'none';
+			return;
+		}
 		name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 		document.getElementById('name').textContent = ` ${name}`;
 		let person = new Person();
@@ -30,7 +79,7 @@ window.onload = () => {
 		Promise.all([
 			fetch(`https://api.agify.io/?name=${name}`),
 			fetch(`https://api.genderize.io?name=${name}`),
-			fetch(`https://api.nationalize.io/?name=${name}`)
+			fetch()
 		])
 			.then((responses) => {
 				// Get a JSON object from each of the responses
@@ -55,7 +104,7 @@ window.onload = () => {
 				// if there's an error, log it
 				console.log(error);
 			});
-	};
+	};*/
 
 	//-------------------------------------Chaining promises-----------------------------------------//
 
