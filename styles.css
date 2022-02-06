@@ -6,9 +6,17 @@ body {
 }
 
 ul {
-	list-style: none;
+	list-style-type: none; /* remove bullets */
+	padding: 0;
+	margin: 0;
+	width: 50%;
+	margin: auto;
 	font-size: 1.7em;
 	line-height: 2em;
+}
+
+li + li {
+	border-top: 1px solid #7c7dd8;
 }
 
 .title {
@@ -24,7 +32,7 @@ ul {
 }
 
 .lorem-light {
-	font-size: 0.8em !important;
+	font-size: 0.9em !important;
 	font-weight: 200 !important;
 	color: #757575;
 }
@@ -40,7 +48,7 @@ input[type=submit] {
 	outline: none;
 	border: none;
 	float: right;
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 input[type=submit]:active {
@@ -48,7 +56,7 @@ input[type=submit]:active {
 }
 
 input[type=submit]:hover {
-	background-color: #ffffff;
+	background-color: #efedfd;
 	color: #7c7cdd;
 	border: 1px solid #7c7cdd;
 }
@@ -91,7 +99,7 @@ input[type=text] {
 .column {
 	display: flex;
 	flex-direction: column;
-	flex: 35%;
+	flex: 50%;
 	padding: 20px;
 	background-color: #efedfd;
 	position: relative;
@@ -108,7 +116,7 @@ input[type=text] {
 }
 
 .second-column {
-	flex: 65%;
+	flex: 50%;
 	padding: 20px;
 	position: relative;
 }
@@ -120,8 +128,9 @@ input[type=text] {
 
 .predict-box {
 	margin: auto;
+	height: 50vh;
 	display: none;
 	flex-direction: column;
-	text-align: start;
+	text-align: center;
 	word-wrap: break-word;
 }
