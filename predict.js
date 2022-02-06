@@ -1,10 +1,12 @@
 window.onload = () => {
 	class Person {
-		constructor(name, age, gender, country) {
+		constructor(name, age, gender, gender_probability, country, country_probability) {
 			this.name = name;
 			this.age = age;
 			this.gender = gender;
+			this.gender_probability = gender_probability;
 			this.country = country;
+			this.country_probability = country_probability;
 		}
 	}
 
@@ -38,6 +40,7 @@ window.onload = () => {
 
 		fetch(gender_url).then((response) => response.json()).then((data) => {
 			homosapien.gender = data.gender;
+			homosapien.gender_probability = data.probability;
 			document.getElementById('gender').textContent = data.gender;
 		});
 
@@ -59,7 +62,7 @@ window.onload = () => {
 			.then((response) => response.json())
 			.then((data) => {
 				data.forEach((element) => {
-					country_name.push(element.name.official);
+					country_name.push(element.name.common);
 				});
 				document.getElementById('nationality').textContent = country_name;
 			});

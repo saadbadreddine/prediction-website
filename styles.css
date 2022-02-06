@@ -9,19 +9,13 @@ body {
 	font-family: Poppins, sans-serif;
 }
 
-.title {
-	font-size: 3em;
-	font-weight: 500;
-	color: #7c7dd8;
-}
-
 input[type=submit] {
 	width: 140px;
 	height: 50px;
 	color: #fff;
 	background: #7c7cdd;
 	font-size: 1em;
-	border-radius: 15px;
+	border-radius: 90px;
 	text-decoration: none;
 	outline: none;
 	border: none;
@@ -66,34 +60,71 @@ textarea {
 }
 
 .column {
+	display: flex;
+	flex-direction: column;
 	flex: 35%;
 	padding: 20px;
 	background-color: #efedfd;
 	position: relative;
 }
 
-.dog-box {
-	border-radius: 20px;
-	display: inline-flex;
-	height: 50vh;
-	overflow: hidden;
-	position: absolute;
-	bottom: 10px;
+.title {
+	font-size: 3em;
+	font-weight: 500;
+	color: #7c7dd8;
 }
 
 .dog-img {
-	max-width: 100%;
+	max-width: 95%;
+	max-height: 50vh;
+	border-radius: 20px;
+	overflow: hidden;
+	margin: auto;
+	align-self: center;
 }
 
 .second-column {
 	flex: 65%;
 	padding: 20px;
-	overflow: hidden;
+	position: relative;
 }
 
 .input-box {
+	width: 100%;
 }
 
 .predict-box {
-	margin-bottom: 3em;
+	width: 100%;
+	margin-top: 3em;
+	display: flex;
+	flex-direction: column;
+}
+
+.box {
+	display: flex;
+}
+
+.pie {
+	--p: 60;
+	--b: 10px;
+	--c: purple;
+	--w: 150px;
+	width: var(--w);
+	aspect-ratio: 1;
+	position: relative;
+	display: inline-grid;
+	place-content: center;
+	margin: 5px;
+	font-size: 25px;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+.pie:before {
+	content: "";
+	position: absolute;
+	border-radius: 50%;
+	inset: 0;
+	background: conic-gradient(var(--c) calc(var(--p)*1%), #0000 0);
+	-webkit-mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+	mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
 }
