@@ -20,18 +20,31 @@ window.onload = () => {
 		person.name = document.getElementById('name-input').value;
 		e.preventDefault();
 
-		fetchAPI(person.name)
+		fetchAPIs(person.name)
 			.then(([ age, gender, country ]) => {
 				person.name = person.name.charAt(0).toUpperCase() + person.name.slice(1).toLowerCase();
 				person.age = age.age;
 				person.gender = gender.gender;
 				person.gender = person.gender.charAt(0).toUpperCase() + person.gender.slice(1);
 				person.country = [];
+				country_codes = '';
+				country_names = '';
+
 				document.getElementById('name').textContent = ` ${person.name}`;
 				document.getElementById('gender').textContent = ` ${person.gender}`;
 				document.getElementById('age').textContent = ` ${person.age}`;
 				country.country.forEach((element) => person.country.push(element.country_id));
-				document.getElementById('nationality').textContent = ` ${person.country}`;
+
+				person.country.forEach((element) => (country_codes += `${element},`));
+				//country_codes = country_codes.replace(/,\s*$/, '');
+				console.log(country_codes);
+				fetchCountries(country_codes).then((data) => {
+					data.forEach((element) => {
+						country_names += `${element.demonyms.eng.f}, `;
+					});
+					country_names = country_names.replace(/,\s*$/, '');
+					document.getElementById('nationality').textContent = ` ${country_names}`;
+				});
 				document.getElementsByClassName('predict-box')[0].style.display = 'flex';
 			})
 			.catch((error) => {
@@ -48,7 +61,7 @@ window.onload = () => {
 
 	//-------------------------------------async/await & Promise.all-----------------------------------------//
 
-	const fetchAPI = async (name) => {
+	const fetchAPIs = async (name) => {
 		const [ response_age, response_gender, response_country ] = await Promise.all([
 			fetch(`https://api.agify.io/?name=${name}`),
 			fetch(`https://api.genderize.io?name=${name}`),
@@ -60,6 +73,12 @@ window.onload = () => {
 		const country = await response_country.json();
 
 		return [ age, gender, country ];
+	};
+
+	const fetchCountries = async (countries) => {
+		const response = await fetch(`https://restcountries.com/v3.1/alpha?codes=${countries}`);
+		const country_names = await response.json();
+		return country_names;
 	};
 
 	//-------------------------------------Promise.all-----------------------------------------//
