@@ -12,14 +12,14 @@ window.onload = () => {
 		.then((response) => response.json())
 		.then((data) => (document.getElementById('doggo').src = data.message));
 	let name = '';
-	document.getElementById('name').addEventListener('submit', (e) => {
+	document.getElementById('name-form').addEventListener('submit', (e) => {
 		name = document.getElementById('name-input').value;
 		e.preventDefault();
 		predictPerson(name);
 	});
 
 	let predictPerson = (name) => {
-		document.getElementsByTagName('h2')[0].innerText = name;
+		document.getElementById('name').textContent = name;
 		name.toLowerCase;
 		let nation_url = 'https://api.nationalize.io/?name=' + name;
 		let age_url = 'https://api.agify.io/?name=' + name;
@@ -33,12 +33,12 @@ window.onload = () => {
 
 		fetch(age_url).then((response) => response.json()).then((data) => {
 			homosapien.age = data.age;
-			document.getElementsByTagName('h3')[0].innerText = data.age;
+			document.getElementById('age').textContent = data.age;
 		});
 
 		fetch(gender_url).then((response) => response.json()).then((data) => {
 			homosapien.gender = data.gender;
-			document.getElementsByTagName('h4')[0].innerText = data.gender;
+			document.getElementById('gender').textContent = data.gender;
 		});
 
 		fetch(nation_url)
@@ -61,7 +61,7 @@ window.onload = () => {
 				data.forEach((element) => {
 					country_name.push(element.name.official);
 				});
-				document.getElementsByTagName('h5')[0].innerText = country_name;
+				document.getElementById('nationality').textContent = country_name;
 			});
 
 		setTimeout(() => {

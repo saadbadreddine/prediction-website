@@ -2,7 +2,7 @@
 body {
 	font-family: Ubuntu, sans-serif;
 	font-weight: 600;
-	background-color: #fffbf8;
+	background-color: #f2f2f2;
 	color: #2c2624;
 }
 
@@ -14,12 +14,18 @@ h3,
 h4,
 h5 {
 	font-size: 2em;
+	margin-left: 5vh;
 }
 
 input[type=submit] {
 	width: 10%;
 	padding: 12px 20px;
 	display: inline-block;
+	color: #2c2624;
+	background-color: #fffbf8;
+	border: 0;
+	border: 1px solid #ccc;
+	border-radius: 10px;
 }
 input[type=text],
 select {
@@ -28,30 +34,8 @@ select {
 	margin: 8px 0 30px;
 	display: inline-block;
 	border: 1px solid #ccc;
-	border-radius: 4px;
+	border-radius: 10px;
 	box-sizing: border-box;
-}
-
-.flex-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
-	align-items: center;
-}
-
-.predict-box {
-	max-width: 50%;
-	float: left;
-	border-radius: 20px;
-	border: 1px solid #2c2624;
-	text-align: center;
-	color: #fffbf8;
-	background-color: #256b6e;
-}
-
-.dog-img {
-	max-width: 100%;
-	max-height: 65vh;
 }
 
 .input-box {
@@ -60,17 +44,38 @@ select {
 	display: flex;
 	flex-direction: column;
 	border-radius: 20px;
-	border: 1px solid #2c2624;
+	border: 1px solid;
 	margin-bottom: 20px;
 	text-align: center;
 }
 
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 5vh;
+}
+
+.predict-box {
+	width: 48%;
+	height: 60vh;
+	border-radius: 20px;
+	border: 1px solid;
+	text-align: start;
+	color: #fffbf8;
+	background-color: #256b6e;
+	overflow: scroll;
+}
+
 .dog-box {
 	width: fit-content;
-	max-width: 50%;
-	margin: auto;
-	display: flex;
+	max-width: 48%;
+	max-height: 60vh;
 	border-radius: 20px;
-	float: right;
 	overflow: hidden;
+}
+
+.dog-img {
+	width: 100%;
 }
