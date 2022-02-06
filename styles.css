@@ -59,23 +59,22 @@ select {
 
 .predict-box {
 	width: 48%;
-	height: 60vh;
+	height: fit-content;
 	border-radius: 20px;
 	border: 1px solid;
 	text-align: start;
 	color: #fffbf8;
 	background-color: #256b6e;
-	overflow: scroll;
 }
 
 .dog-box {
-	width: fit-content;
-	max-width: 48%;
-	max-height: 60vh;
 	border-radius: 20px;
+	display: inline-flex;
+	width: fit-content;
+	height: 60vh;
 	overflow: hidden;
 }
 
 .dog-img {
-	width: 100%;
+	max-width: 100%;
 }
