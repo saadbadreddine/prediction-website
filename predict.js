@@ -41,7 +41,7 @@ window.onload = () => {
 		fetch(gender_url).then((response) => response.json()).then((data) => {
 			homosapien.gender = data.gender;
 			homosapien.gender_probability = data.probability;
-			document.getElementById('gender').textContent = data.gender;
+			document.getElementById('gender').textContent = ` ${data.gender}`;
 		});
 
 		fetch(nation_url)
@@ -64,10 +64,11 @@ window.onload = () => {
 				data.forEach((element) => {
 					country_name.push(element.name.common);
 				});
-				document.getElementById('nationality').textContent = country_name;
+				document.getElementById('nationality').textContent = ` ${country_name}`;
 			});
 
 		setTimeout(() => {
+			document.getElementsByClassName('predict-box')[0].style.display = 'flex';
 			console.log(homosapien);
 			console.log(country_name);
 		}, 0);
