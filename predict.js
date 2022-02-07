@@ -44,14 +44,18 @@ window.onload = () => {
 
 				person.country.forEach((element) => (country_codes += `${element},`));
 				//country_codes = country_codes.replace(/,\s*$/, '');
-				fetchCountries(country_codes).then((data) => {
-					data.forEach((element) => {
-						country_names += `${element.demonyms.eng.f}, `;
+				fetchCountries(country_codes)
+					.then((data) => {
+						data.forEach((element) => {
+							country_names += `${element.demonyms.eng.f}, `;
+						});
+						country_names = country_names.replace(/,\s*$/, '');
+						document.getElementById('nationality').textContent = ` ${country_names}`;
+					})
+					.then(() => (document.getElementsByClassName('predict-box')[0].style.display = 'flex'))
+					.catch((error) => {
+						console.log(error);
 					});
-					country_names = country_names.replace(/,\s*$/, '');
-					document.getElementById('nationality').textContent = ` ${country_names}`;
-				});
-				document.getElementsByClassName('predict-box')[0].style.display = 'flex';
 			})
 			.catch((error) => {
 				// if there's an error, log it
