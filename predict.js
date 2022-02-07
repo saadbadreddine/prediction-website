@@ -82,7 +82,6 @@ window.onload = () => {
 	};
 
 	//-------------------------------------Promise.all-----------------------------------------//
-
 	/* 
 	const predictPerson = (name) => {
 		document.getElementById('name-form').reset();
@@ -98,15 +97,11 @@ window.onload = () => {
 		Promise.all([
 			fetch(`https://api.agify.io/?name=${name}`),
 			fetch(`https://api.genderize.io?name=${name}`),
-			fetch()
+			fetch(`https://api.nationalize.io/?name=${name}`)
 		])
 			.then((responses) => {
 				// Get a JSON object from each of the responses
-				return Promise.all(
-					responses.map(function(response) {
-						return response.json();
-					})
-				);
+				return Promise.all(responses.map((response) => response.json()));
 			})
 			.then((data) => {
 				person.age = data[0].age;

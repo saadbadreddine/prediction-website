@@ -9,9 +9,10 @@ ul {
 	list-style-type: none; /* remove bullets */
 	padding: 0;
 	margin: 0;
-	width: 50%;
+	width: 70%;
 	margin: auto;
 	font-size: 1.7em;
+	line-height: 2em;
 }
 
 li + li {
@@ -42,12 +43,14 @@ input[type=submit] {
 	color: #fff;
 	background: #7c7cdd;
 	font-size: 1em;
+	font-weight: lighter;
 	border-radius: 90px;
 	text-decoration: none;
 	outline: none;
 	border: none;
 	float: right;
 	margin-top: 20px;
+	margin-right: 30px;
 }
 
 input[type=submit]:active {
@@ -70,17 +73,12 @@ input[type=text] {
 	font-family: 'Poppins';
 	font-weight: bold;
 	font-size: 24px;
-	transition: 0.3s ease;
-	-moz-transition: 0.3s ease;
-	-webkit-transition: 0.3s ease;
-	-o-transition: 0.3s ease;
-	-ms-transition: 0.3s ease;
-	padding-top: 30px;
+	padding-top: 40px;
 	padding-bottom: 5px;
-	-webkit-appearance: none;
 	background: transparent;
 	outline: none;
 	appearance: unset !important;
+	-webkit-appearance: unset !important;
 	-moz-appearance: unset !important;
 	-webkit-appearance: unset !important;
 	-o-appearance: unset !important;
@@ -108,7 +106,7 @@ input[type=text] {
 
 .dog-img {
 	max-width: 95%;
-	max-height: 50vh;
+	max-height: 55vh;
 	border-radius: 20px;
 	overflow: hidden;
 	margin: auto;
@@ -119,6 +117,7 @@ input[type=text] {
 	flex: 50%;
 	padding: 20px;
 	position: relative;
+	overflow: hidden;
 }
 
 .input-box {
@@ -128,9 +127,42 @@ input[type=text] {
 
 .predict-box {
 	margin: auto;
-	height: 50vh;
 	display: none;
-	flex-direction: column;
 	text-align: center;
 	word-wrap: break-word;
+}
+
+@media only screen and (max-width: 768px) {
+	.parent-container {
+		display: inline;
+	}
+	.column {
+		padding: 20px;
+		background-color: #efedfd;
+	}
+
+	.dog-img {
+		max-width: 65%;
+		max-height: 55vh;
+		border-radius: 20px;
+		overflow: hidden;
+		margin: auto;
+		margin-top: 40px;
+		margin-bottom: 10px;
+		align-self: center;
+	}
+	.second-column {
+		padding: 20px;
+	}
+	.predict-box {
+		margin-bottom: 20px;
+	}
+
+	.title {
+		font-size: 2.5em;
+		font-weight: 600;
+		color: #7c7dd8;
+		margin-bottom: 0.5em;
+		padding-top: 20px;
+	}
 }
