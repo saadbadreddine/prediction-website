@@ -19,6 +19,12 @@ window.onload = () => {
 	document.getElementById('name-form').addEventListener('submit', (e) => {
 		person.name = document.getElementById('name-input').value;
 		e.preventDefault();
+		document.getElementById('name-form').reset();
+
+		if (person.name === '') {
+			document.getElementsByClassName('predict-box')[0].style.display = 'none';
+			return;
+		}
 
 		fetchAPIs(person.name)
 			.then(([ age, gender, country ]) => {
@@ -37,7 +43,6 @@ window.onload = () => {
 
 				person.country.forEach((element) => (country_codes += `${element},`));
 				//country_codes = country_codes.replace(/,\s*$/, '');
-				console.log(country_codes);
 				fetchCountries(country_codes).then((data) => {
 					data.forEach((element) => {
 						country_names += `${element.demonyms.eng.f}, `;
@@ -51,12 +56,6 @@ window.onload = () => {
 				// if there's an error, log it
 				console.log(error);
 			});
-
-		document.getElementById('name-form').reset();
-
-		if (person.name === '') {
-			document.getElementsByClassName('predict-box')[0].style.display = 'none';
-		}
 	});
 
 	//-------------------------------------async/await & Promise.all-----------------------------------------//
