@@ -13,10 +13,16 @@ ul {
 	margin: auto;
 	font-size: 1.7em;
 	line-height: 2em;
+	color: #7c7dd8;
 }
 
 li + li {
-	border-top: 1px solid #7c7dd8;
+	border-top: 1px solid #757575;
+}
+
+span {
+	font-weight: 500;
+	color: black;
 }
 
 .title {
@@ -135,7 +141,7 @@ input[type=text] {
 .predict-box {
 	margin: auto;
 	display: none;
-	text-align: center;
+	text-align: start;
 	word-wrap: break-word;
 }
 
