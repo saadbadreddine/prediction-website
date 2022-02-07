@@ -68,6 +68,7 @@ input[type=submit]:hover {
 	color: #7c7cdd;
 	border: 1px solid #7c7cdd;
 	cursor: pointer;
+	transition: all 400ms ease-out;
 }
 
 input[type=text] {
@@ -122,6 +123,7 @@ input[type=text] {
 	margin-bottom: 10px;
 	align-self: center;
 	color: transparent;
+	box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
 .second-column {
