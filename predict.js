@@ -51,8 +51,8 @@ window.onload = () => {
 						});
 						country_names = country_names.replace(/,\s*$/, '');
 						document.getElementById('nationality').textContent = ` ${country_names}`;
+						document.getElementsByClassName('predict-box')[0].style.display = 'flex';
 					})
-					.then(() => (document.getElementsByClassName('predict-box')[0].style.display = 'flex'))
 					.catch((error) => {
 						console.log(error);
 					});
