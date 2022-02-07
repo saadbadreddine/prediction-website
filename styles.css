@@ -105,6 +105,7 @@ input[type=text] {
 }
 
 .dog-img {
+	display: none;
 	max-width: 95%;
 	max-height: 55vh;
 	border-radius: 20px;
@@ -114,6 +115,7 @@ input[type=text] {
 	margin-top: 40px;
 	margin-bottom: 10px;
 	align-self: center;
+	color: transparent;
 }
 
 .second-column {

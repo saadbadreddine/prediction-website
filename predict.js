@@ -10,9 +10,10 @@ window.onload = () => {
 		}
 	}
 
-	fetch('https://dog.ceo/api/breeds/image/random')
-		.then((response) => response.json())
-		.then((data) => (document.getElementById('doggo').src = data.message));
+	fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json()).then((data) => {
+		document.getElementById('doggo').src = data.message;
+		document.getElementById('doggo').style.display = 'block';
+	});
 
 	let person = new Person();
 
