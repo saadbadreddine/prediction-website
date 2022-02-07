@@ -165,4 +165,20 @@ input[type=text] {
 		margin-bottom: 0.5em;
 		padding-top: 20px;
 	}
+
+	input[type=submit] {
+		width: 140px;
+		height: 50px;
+		color: #fff;
+		background: #7c7cdd;
+		font-size: 1em;
+		font-weight: lighter;
+		border-radius: 90px;
+		text-decoration: none;
+		outline: none;
+		border: none;
+		float: right;
+		margin-top: 20px;
+		margin-right: 0px;
+	}
 }
