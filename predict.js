@@ -10,12 +10,24 @@ window.onload = () => {
 		}
 	}
 
-	fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json()).then((data) => {
-		document.getElementById('doggo').src = data.message;
+	let person = new Person();
+
+	const fetchDog = async () => {
+		const response = await fetch('https://dog.ceo/api/breeds/image/random');
+		const doggo = await response.json();
+		return doggo;
+	};
+
+	fetchDog().then((doggo) => {
+		document.getElementById('doggo').src = doggo.message;
 		document.getElementById('doggo').style.display = 'block';
 	});
 
-	let person = new Person();
+	/*
+	fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json()).then((data) => {
+		document.getElementById('doggo').src = data.message;
+		document.getElementById('doggo').style.display = 'block';
+	});*/
 
 	document.getElementById('name-form').addEventListener('submit', (e) => {
 		person.name = document.getElementById('name-input').value;
