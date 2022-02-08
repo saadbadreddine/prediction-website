@@ -59,6 +59,9 @@ window.onload = () => {
 			})
 			.catch((error) => {
 				// if there's an error, log it
+				alert('Please enter a valid name');
+				document.getElementsByClassName('predict-box')[0].style.display = 'none';
+				console.log('Error');
 				console.log(error);
 			});
 	});
